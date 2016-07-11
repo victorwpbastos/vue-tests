@@ -1,11 +1,25 @@
 <template>
 	<label :class="['radio-inline', disabled ? 'disabled' : '']" v-if="inline">
-		<input type="radio" value="{{value}}" v-model="model" :disabled="disabled"> <slot></slot>
+		<input
+			type="radio"
+			value="{{value}}"
+			v-model="model"
+			:id="id"
+			:name="name"
+			:disabled="disabled"
+		> <slot></slot>
 	</label>
 
 	<div :class="['radio-inline', disabled ? 'disabled' : '']" v-else>
 		<label>
-			<input type="radio" value="{{value}}" v-model="model" :disabled="disabled"> <slot></slot>
+			<input
+				type="radio"
+				value="{{value}}"
+				v-model="model"
+				:id="id"
+				:name="name"
+				:disabled="disabled"
+			> <slot></slot>
 		</label>
 	</div>
 </template>
@@ -15,6 +29,8 @@
 		props: {
 			value: { default: null },
 			model: { default: null },
+			id: { default() { return `field-${this._uid}`; } },
+			name: { default() { return `field-${this._uid}`; } },
 			disabled: {
 				default: null,
 				coerce(value) {

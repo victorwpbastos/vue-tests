@@ -1,5 +1,5 @@
 <template>
-	<v-group :label="label" :cols="cols">
+	<v-group :label="label" :cols="cols" :for="id">
 		<input
 			:type="type"
 			:class="['form-control', classes]"
@@ -26,8 +26,8 @@
 			label: { default: null },
 			cols: { default: null },
 			model: { default: null },
-			id: { default: null },
-			name: { default: null },
+			id: { default() { return `field-${this._uid}`; } },
+			name: { default() { return `field-${this._uid}`; } },
 			class: { default: null },
 			disabled: { default: null },
 			readonly: { default: null },

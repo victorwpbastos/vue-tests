@@ -4,7 +4,7 @@
 		<slot></slot>
 	</div>
 
-	<v-group :label="label" :cols="cols">
+	<v-group :label="label" :cols="cols" :for="id">
 		<select
 			v-el:select
 			:class="['form-control', classes]"
@@ -28,8 +28,8 @@
 			label: { default: null },
 			cols: { default: null },
 			model: { default: null },
-			id: { default: null },
-			name: { default: null },
+			id: { default() { return `field-${this._uid}`; } },
+			name: { default() { return `field-${this._uid}`; } },
 			class: { default: null },
 			disabled: { default: null },
 			readonly: { default: null },

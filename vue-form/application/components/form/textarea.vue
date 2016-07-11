@@ -4,7 +4,7 @@
 		<slot></slot>
 	</div>
 
-	<v-group :label="label" :cols="cols">
+	<v-group :label="label" :cols="cols" :for="id">
 		<textarea
 			v-el:textarea
 			:class="['form-control', classes]"
@@ -12,6 +12,7 @@
 			:id="id"
 			:name="name"
 			:rows="rows"
+			:placeholder="placeholder"
 			:disabled="disabled"
 			:readonly="readonly"
 		></textarea>
@@ -24,7 +25,18 @@
 	export default {
 		components: { VGroup },
 
-		props: ['label', 'cols', 'model', 'id', 'name', 'class', 'rows', 'disabled', 'readonly'],
+		props: {
+			label: { default: null },
+			cols: { default: null },
+			model: { default: null },
+			id: { default() { return `field-${this._uid}`; } },
+			name: { default() { return `field-${this._uid}`; } },
+			class: { default: null },
+			rows: { default: null },
+			placeholder: { default: null },
+			disabled: { default: null },
+			readonly: { default: null }
+		},
 
 		computed: {
 			classes() {
