@@ -1,5 +1,5 @@
 <template>
-	<v-group :label="label" :cols="cols" :for="id">
+	<v-group :label="label" :cols="cols" :id="id">
 		<input
 			:type="type"
 			:class="['form-control', classes]"
@@ -12,6 +12,7 @@
 			:min="min"
 			:max="max"
 			:step="step"
+			:autofocus="autofocus"
 		>
 	</v-group>
 </template>
@@ -35,6 +36,7 @@
 			min: { default: null },
 			max: { default: null },
 			step: { default: null },
+			autofocus: { default: null },
 			type: {
 				default: 'text',
 				validator(value) {

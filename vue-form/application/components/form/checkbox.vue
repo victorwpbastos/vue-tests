@@ -1,26 +1,28 @@
 <template>
-	<label :class="['checkbox-inline', disabled ? 'disabled' : '']" v-if="inline">
-		<input
-			type="checkbox"
-			value="{{value}}"
-			v-model="model"
-			:id="id"
-			:name="name"
-			:disabled="disabled"
-		> <slot></slot>
-	</label>
-
-	<div :class="['checkbox', disabled ? 'disabled' : '']" v-else>
-		<label>
+	<div>
+		<label :class="['checkbox-inline', disabled ? 'disabled' : '']" v-if="inline">
 			<input
 				type="checkbox"
-				value="{{value}}"
+				:value="value"
 				v-model="model"
 				:id="id"
 				:name="name"
 				:disabled="disabled"
 			> <slot></slot>
 		</label>
+
+		<div :class="['checkbox', disabled ? 'disabled' : '']" v-else>
+			<label>
+				<input
+					type="checkbox"
+					:value="value"
+					v-model="model"
+					:id="id"
+					:name="name"
+					:disabled="disabled"
+				> <slot></slot>
+			</label>
+		</div>
 	</div>
 </template>
 

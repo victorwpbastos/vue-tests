@@ -1,26 +1,28 @@
 <template>
-	<label :class="['radio-inline', disabled ? 'disabled' : '']" v-if="inline">
-		<input
-			type="radio"
-			value="{{value}}"
-			v-model="model"
-			:id="id"
-			:name="name"
-			:disabled="disabled"
-		> <slot></slot>
-	</label>
-
-	<div :class="['radio-inline', disabled ? 'disabled' : '']" v-else>
-		<label>
+	<div>
+		<label :class="['radio-inline', disabled ? 'disabled' : '']" v-if="inline">
 			<input
 				type="radio"
-				value="{{value}}"
+				:value="value"
 				v-model="model"
 				:id="id"
 				:name="name"
 				:disabled="disabled"
 			> <slot></slot>
 		</label>
+
+		<div :class="['radio-inline', disabled ? 'disabled' : '']" v-else>
+			<label>
+				<input
+					type="radio"
+					:value="value"
+					v-model="model"
+					:id="id"
+					:name="name"
+					:disabled="disabled"
+				> <slot></slot>
+			</label>
+		</div>
 	</div>
 </template>
 

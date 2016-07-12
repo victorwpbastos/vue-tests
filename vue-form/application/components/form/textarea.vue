@@ -1,22 +1,25 @@
 <template>
-	<!-- content container -->
-	<div v-el:content>
-		<slot></slot>
-	</div>
+	<div>
+		<!-- content container -->
+		<div v-el:content>
+			<slot></slot>
+		</div>
 
-	<v-group :label="label" :cols="cols" :for="id">
-		<textarea
-			v-el:textarea
-			:class="['form-control', classes]"
-			v-model="model"
-			:id="id"
-			:name="name"
-			:rows="rows"
-			:placeholder="placeholder"
-			:disabled="disabled"
-			:readonly="readonly"
-		></textarea>
-	</v-group>
+		<v-group :label="label" :cols="cols" :id="id">
+			<textarea
+				v-el:textarea
+				:class="['form-control', classes]"
+				v-model="model"
+				:id="id"
+				:name="name"
+				:rows="rows"
+				:placeholder="placeholder"
+				:disabled="disabled"
+				:readonly="readonly"
+				:autofocus="autofocus"
+			></textarea>
+		</v-group>
+	</div>
 </template>
 
 <script>
@@ -35,7 +38,8 @@
 			rows: { default: null },
 			placeholder: { default: null },
 			disabled: { default: null },
-			readonly: { default: null }
+			readonly: { default: null },
+			autofocus: { default: null }
 		},
 
 		computed: {

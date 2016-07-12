@@ -1,21 +1,24 @@
 <template>
-	<!-- content container -->
-	<div v-el:content>
-		<slot></slot>
-	</div>
+	<div>
+		<!-- content container -->
+		<div v-el:content>
+			<slot></slot>
+		</div>
 
-	<v-group :label="label" :cols="cols" :for="id">
-		<select
-			v-el:select
-			:class="['form-control', classes]"
-			v-model="model"
-			:id="id"
-			:name="name"
-			:multiple="multiple"
-			:disabled="disabled"
-			:readonly="readonly"
-		></select>
-	</v-group>
+		<v-group :label="label" :cols="cols" :id="id">
+			<select
+				v-el:select
+				:class="['form-control', classes]"
+				v-model="model"
+				:id="id"
+				:name="name"
+				:multiple="multiple"
+				:disabled="disabled"
+				:readonly="readonly"
+				:autofocus="autofocus"
+			></select>
+		</v-group>
+	</div>
 </template>
 
 <script>
@@ -33,6 +36,7 @@
 			class: { default: null },
 			disabled: { default: null },
 			readonly: { default: null },
+			autofocus: { default: null },
 			multiple: {
 				default: false,
 				coerce(value) {
